@@ -13,7 +13,7 @@ YoukeHelp *myYouku = [YoukuHelp initWithUrl:[NSURL URLWithString:myURL]];       
 
 [myYouku getTitle:indexPath.row]         //得到视频标题
 [myYouku getThumbnail:indexPath.row]    //得到视频缩略图
-[myYouku getVideoUrl:indexPath.row withType:YOUKU720P] //得到对应的m3u8文件地址
+[myYouku getVideoUrl:indexPath.row withType:VIDEOTYPE] //得到对应的m3u8文件地址
 ```
 ## NOTE
  
