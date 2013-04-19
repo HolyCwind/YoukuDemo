@@ -25,4 +25,4 @@ YoukeHelp *myYouku = [YoukuHelp initWithUrl:[NSURL URLWithString:myURL]];       
 
 ##SNAPSHOT
 
-湖南卫视优酷空间： ![pic](http://ww1.sinaimg.cn/large/a74eed94jw1e3v9jldn2aj208w0dcwfw.jpg)
+![pic](http://ww1.sinaimg.cn/large/a74eed94jw1e3v9jldn2aj208w0dcwfw.jpg)
