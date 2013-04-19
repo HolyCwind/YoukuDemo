@@ -16,8 +16,13 @@ YoukeHelp *myYouku = [YoukuHelp initWithUrl:[NSURL URLWithString:myURL]];       
 [myYouku getVideoUrl:indexPath.row withType:VIDEOTYPE]                                    //得到对应的m3u8文件地址
 ```
 ## NOTE
- 
 解析HTML用了[Hpple](https://github.com/topfunky/hpple)
 
 优酷全站的HTML代码并不规范，各个空间的格式不尽相同（目前已经发现三个版本），所以特定情况下需要根据网页源代码修改
 
+##TODO
+增加接口，增加下拉显示更多从而加载下一页的内容
+
+##SNAPSHOT
+
+湖南卫视优酷空间： ![pic](http://ww1.sinaimg.cn/large/a74eed94jw1e3v9jldn2aj208w0dcwfw.jpg)
