@@ -1,5 +1,3 @@
-YoukuDemo
-=========
 ## DESCRIPTION
 通过给定的优酷空间网址，得到视频列表
 
