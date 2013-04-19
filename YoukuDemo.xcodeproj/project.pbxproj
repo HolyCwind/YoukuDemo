@@ -17,7 +17,13 @@
 		56BD895C172152080083C4B7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56BD895B172152080083C4B7 /* Default@2x.png */; };
 		56BD895E172152080083C4B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56BD895D172152080083C4B7 /* Default-568h@2x.png */; };
 		56BD8961172152080083C4B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BD895F172152080083C4B7 /* MainStoryboard.storyboard */; };
-		56BD8964172152080083C4B7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD8963172152080083C4B7 /* ViewController.m */; };
+		56BD896C172152590083C4B7 /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD896B172152590083C4B7 /* ListTableViewController.m */; };
+		56BD896F172152A50083C4B7 /* YoukuHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD896E172152A50083C4B7 /* YoukuHelp.m */; };
+		56BD8976172154FA0083C4B7 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD8971172154FA0083C4B7 /* TFHpple.m */; };
+		56BD8977172154FA0083C4B7 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD8973172154FA0083C4B7 /* TFHppleElement.m */; };
+		56BD8978172154FA0083C4B7 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD8975172154FA0083C4B7 /* XPathQuery.m */; };
+		56BD897D1721578C0083C4B7 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BD897C1721578C0083C4B7 /* libxml2.2.dylib */; };
+		56BD8980172173130083C4B7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BD897E172173020083C4B7 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +41,18 @@
 		56BD895B172152080083C4B7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		56BD895D172152080083C4B7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		56BD8960172152080083C4B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		56BD8962172152080083C4B7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		56BD8963172152080083C4B7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		56BD896A172152590083C4B7 /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
+		56BD896B172152590083C4B7 /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
+		56BD896D172152A50083C4B7 /* YoukuHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoukuHelp.h; sourceTree = "<group>"; };
+		56BD896E172152A50083C4B7 /* YoukuHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoukuHelp.m; sourceTree = "<group>"; };
+		56BD8970172154FA0083C4B7 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		56BD8971172154FA0083C4B7 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		56BD8972172154FA0083C4B7 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		56BD8973172154FA0083C4B7 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		56BD8974172154FA0083C4B7 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		56BD8975172154FA0083C4B7 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		56BD897C1721578C0083C4B7 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		56BD897E172173020083C4B7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BD8980172173130083C4B7 /* MediaPlayer.framework in Frameworks */,
+				56BD897D1721578C0083C4B7 /* libxml2.2.dylib in Frameworks */,
 				56BD8948172152080083C4B7 /* UIKit.framework in Frameworks */,
 				56BD894A172152080083C4B7 /* Foundation.framework in Frameworks */,
 				56BD894C172152080083C4B7 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +91,8 @@
 		56BD8946172152080083C4B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56BD897E172173020083C4B7 /* MediaPlayer.framework */,
+				56BD897C1721578C0083C4B7 /* libxml2.2.dylib */,
 				56BD8947172152080083C4B7 /* UIKit.framework */,
 				56BD8949172152080083C4B7 /* Foundation.framework */,
 				56BD894B172152080083C4B7 /* CoreGraphics.framework */,
@@ -86,8 +106,11 @@
 				56BD8956172152080083C4B7 /* AppDelegate.h */,
 				56BD8957172152080083C4B7 /* AppDelegate.m */,
 				56BD895F172152080083C4B7 /* MainStoryboard.storyboard */,
-				56BD8962172152080083C4B7 /* ViewController.h */,
-				56BD8963172152080083C4B7 /* ViewController.m */,
+				56BD896A172152590083C4B7 /* ListTableViewController.h */,
+				56BD896B172152590083C4B7 /* ListTableViewController.m */,
+				56BD896D172152A50083C4B7 /* YoukuHelp.h */,
+				56BD896E172152A50083C4B7 /* YoukuHelp.m */,
+				56BD8979172154FE0083C4B7 /* TFHpple */,
 				56BD894E172152080083C4B7 /* Supporting Files */,
 			);
 			path = YoukuDemo;
@@ -105,6 +128,19 @@
 				56BD895D172152080083C4B7 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		56BD8979172154FE0083C4B7 /* TFHpple */ = {
+			isa = PBXGroup;
+			children = (
+				56BD8972172154FA0083C4B7 /* TFHppleElement.h */,
+				56BD8973172154FA0083C4B7 /* TFHppleElement.m */,
+				56BD8974172154FA0083C4B7 /* XPathQuery.h */,
+				56BD8975172154FA0083C4B7 /* XPathQuery.m */,
+				56BD8970172154FA0083C4B7 /* TFHpple.h */,
+				56BD8971172154FA0083C4B7 /* TFHpple.m */,
+			);
+			name = TFHpple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,7 +211,11 @@
 			files = (
 				56BD8954172152080083C4B7 /* main.m in Sources */,
 				56BD8958172152080083C4B7 /* AppDelegate.m in Sources */,
-				56BD8964172152080083C4B7 /* ViewController.m in Sources */,
+				56BD896C172152590083C4B7 /* ListTableViewController.m in Sources */,
+				56BD896F172152A50083C4B7 /* YoukuHelp.m in Sources */,
+				56BD8976172154FA0083C4B7 /* TFHpple.m in Sources */,
+				56BD8977172154FA0083C4B7 /* TFHppleElement.m in Sources */,
+				56BD8978172154FA0083C4B7 /* XPathQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +266,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -250,7 +291,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -263,6 +305,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YoukuDemo/YoukuDemo-Prefix.pch";
 				INFOPLIST_FILE = "YoukuDemo/YoukuDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +317,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YoukuDemo/YoukuDemo-Prefix.pch";
 				INFOPLIST_FILE = "YoukuDemo/YoukuDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
