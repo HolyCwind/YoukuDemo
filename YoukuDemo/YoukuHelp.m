@@ -10,13 +10,33 @@
 
 @implementation YoukuHelp
   
-+ (YoukuHelp *)initWithUrl:(NSURL *)url
+- (void)initWithUrl:(NSURL *)url
 {
-  YoukuHelp *myYouku = [[YoukuHelp alloc] init];
+  self.url = url;
+  self.page = 1;
   NSData *siteData = [NSData dataWithContentsOfURL:url];
   TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:siteData];
-  myYouku.listArray = [xpathParser searchWithXPathQuery:@"//ul[@class='v']/li[@class][position()=2]/img"];
-  return myYouku;
+  self.listArray = [xpathParser searchWithXPathQuery:@"//ul[@class='v']/li[@class][position()=2]/img"];
+  
+  NSArray *pageTotal = [xpathParser searchWithXPathQuery:@"//ul[@class='pages']/li[@class='last']/a"];
+  if (pageTotal.count > 0) {
+    TFHppleElement *element = [pageTotal objectAtIndex:0];
+    TFHppleElement *element1 = [element children][1];
+    NSString *pageString = element1.content;
+    self.pageTotal = [pageString intValue];
+  }else {
+    self.pageTotal = 1;
+  }
+  
+  NSArray *name = [xpathParser searchWithXPathQuery:@"//ul[@class='info']/li[@class='avatar']/a/img"];
+  TFHppleElement *element = name[0];
+  NSDictionary *dic = [element attributes];
+  self.name = dic[@"title"];
+  self.imageUrl = [NSURL URLWithString:dic[@"src"]];
+  
+  NSArray *detail = [xpathParser searchWithXPathQuery:@"//div[@class='summary']/div[@_fr='more']"];
+  TFHppleElement *elementDetail = [detail[0] firstChild];
+  self.details = elementDetail.content;
 }
 
 - (NSString *)getTitle:(int)row
@@ -49,4 +69,19 @@
   NSString *videoUrl = [urlTemp stringByAppendingString:suffixArray[type]];
   return [NSURL URLWithString:videoUrl];
  }
+
+- (void)addList
+{
+  NSArray *list = @[];
+  NSString *initUrl = [self.url absoluteString];
+  NSString *tempUrl = [initUrl substringToIndex:(initUrl.length - 5)];
+  NSString *tempUrl2 = [tempUrl stringByAppendingString:NEXTURL];
+  NSString *url = [tempUrl2 stringByAppendingFormat:@"%d%@",self.page,@".html"];
+  
+  NSData *siteData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+  TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:siteData];
+  list = [xpathParser searchWithXPathQuery:@"//ul[@class='v']/li[@class][position()=2]/img"];
+  self.listArray = [self.listArray arrayByAddingObjectsFromArray:list];
+}
+
 @end

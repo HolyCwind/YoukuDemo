@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 com.cwind. All rights reserved.
 //
 
-#define myURL @"http://i.youku.com/u/UMTMwMzg5Mg==/videos"
-
 #import "ListTableViewController.h"
 
 @interface ListTableViewController ()
@@ -21,7 +19,19 @@
   [super viewDidLoad];
   self.title = @"Youku Demo";
  
-  self.myYouku = [YoukuHelp initWithUrl:[NSURL URLWithString:myURL]];
+  if (self.footerView == nil) {
+    RefreshTableFooterView *footerView = [[RefreshTableFooterView alloc] initWithFrame:CGRectMake(0,  MAX(self.myYouku.listArray.count * 44,self.tableView.bounds.size.height), 320, self.tableView.bounds.size.height)];
+    footerView .delegate = self;
+    [self.tableView addSubview:footerView];
+    self.footerView = footerView;
+  }
+  if (self.headerView == nil) {
+    RefreshTableHeaderView *headerView = [[RefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, 0 - self.tableView.bounds.size.height, 320, self.tableView.bounds.size.height)];
+    headerView.delegate = self;
+    [self.tableView addSubview:headerView];
+    self.headerView = headerView;
+  }
+
 }
 
 #pragma mark - Table view data source
@@ -86,10 +96,119 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSURL *url = [self.myYouku getVideoUrl:indexPath.row withType:YOUKU720P];
-  NSLog(@"%@",url);
   
   MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
   [self presentMoviePlayerViewControllerAnimated:mp];
+}
+
+#pragma mark - Refresh Methods
+
+- (void)doneLoadTableViewData
+{
+  [[self chooseRefreshType] refreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+}
+
+- (id)chooseRefreshType
+{
+  if (self.refreshType == REFRESHHead) {
+    return self.headerView;
+  }else {
+    return self.footerView;
+  }
+}
+
+- (void)reloadTableViewDataSource
+{
+  self.myYouku.page++;
+  dispatch_queue_t downloadQueue = dispatch_queue_create("loadMore",NULL);
+  dispatch_async(downloadQueue, ^{
+    
+    int numberOfOriginalRows = self.myYouku.listArray.count;
+    [self.myYouku addList];
+    int numberOfNewRows = self.myYouku.listArray.count;
+    NSMutableArray *indexPathArray = [NSMutableArray array];
+    for (int i = numberOfOriginalRows; i < numberOfNewRows; i++) {
+      NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+      [indexPathArray addObject:indexPath];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.footerView.frame = CGRectMake(0, 44 * self.myYouku.listArray.count, 320, 48);
+      [self.tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationMiddle];
+      NSIndexPath *indexPath = [NSIndexPath indexPathForRow:numberOfOriginalRows inSection:0];
+      [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+      self.isLoading = NO;
+      [self doneLoadTableViewData];
+    });
+  });
+}
+
+- (void)refreshTableViewDataSource
+{
+  [self.myYouku initWithUrl:self.myYouku.url];
+  [self.tableView reloadData];
+  self.isLoading = NO;
+  [self.footerView refreshInit];
+  self.footerView.frame = CGRectMake(0, MAX(self.myYouku.listArray.count * 44,self.tableView.bounds.size.height + 15), 320, 48);
+  [self doneLoadTableViewData];
+
+}
+
+#pragma mark - UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  if (scrollView.contentOffset.y > 0) {
+    self.refreshType = REFRESHFoot;
+    if (self.myYouku.pageTotal == self.myYouku.page) {
+      [self.footerView refreshNoMore];
+      return;
+    }
+  }else {
+    self.refreshType = REFRESHHead;
+  }
+  [[self chooseRefreshType] refreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+  if (scrollView.contentOffset.y > 0 && self.myYouku.pageTotal == self.myYouku.page) {
+    return;
+  }
+  [[self chooseRefreshType] refreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma mark - EGORefreshTableHeaderDelegate Methods
+
+- (void)refreshTableHeader
+{
+  self.isLoading = YES;
+  [self performSelector:@selector(refreshTableViewDataSource) withObject:nil afterDelay:0.5];
+}
+
+- (BOOL)refreshTableHeaderDataSourceIsLoading
+{
+  return self.isLoading;
+}
+
+#pragma mark - EGORefreshTableFooterDelegate Methods
+
+- (void)refreshTableFooter
+{
+  self.isLoading = YES;
+  [self performSelector:@selector(reloadTableViewDataSource) withObject:nil afterDelay:0.5];
+}
+
+- (BOOL)refreshTableFooterDataSourceIsLoading
+{
+  return self.isLoading;
+}
+
+#pragma mark - Memory Management
+
+- (void)dealloc
+{
+  self.footerView.delegate = nil;
+  self.headerView.delegate = nil;
 }
 
 @end

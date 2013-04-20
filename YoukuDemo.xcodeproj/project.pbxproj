@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		564203D417229F090074DE9B /* RefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 564203D117229F090074DE9B /* RefreshTableFooterView.m */; };
+		564203D517229F090074DE9B /* RefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 564203D317229F090074DE9B /* RefreshTableHeaderView.m */; };
+		564203D917229F8D0074DE9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564203D817229F8D0074DE9B /* ViewController.m */; };
 		56BD8948172152080083C4B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BD8947172152080083C4B7 /* UIKit.framework */; };
 		56BD894A172152080083C4B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BD8949172152080083C4B7 /* Foundation.framework */; };
 		56BD894C172152080083C4B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BD894B172152080083C4B7 /* CoreGraphics.framework */; };
@@ -27,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		564203D017229F090074DE9B /* RefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableFooterView.h; sourceTree = "<group>"; };
+		564203D117229F090074DE9B /* RefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableFooterView.m; sourceTree = "<group>"; };
+		564203D217229F090074DE9B /* RefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableHeaderView.h; sourceTree = "<group>"; };
+		564203D317229F090074DE9B /* RefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableHeaderView.m; sourceTree = "<group>"; };
+		564203D717229F8D0074DE9B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		564203D817229F8D0074DE9B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		56BD8944172152080083C4B7 /* YoukuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoukuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BD8947172152080083C4B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		56BD8949172152080083C4B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +80,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		564203D617229F1E0074DE9B /* Pull-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				564203D017229F090074DE9B /* RefreshTableFooterView.h */,
+				564203D117229F090074DE9B /* RefreshTableFooterView.m */,
+				564203D217229F090074DE9B /* RefreshTableHeaderView.h */,
+				564203D317229F090074DE9B /* RefreshTableHeaderView.m */,
+			);
+			name = "Pull-Demo";
+			sourceTree = "<group>";
+		};
 		56BD893B172152080083C4B7 = {
 			isa = PBXGroup;
 			children = (
@@ -106,10 +126,13 @@
 				56BD8956172152080083C4B7 /* AppDelegate.h */,
 				56BD8957172152080083C4B7 /* AppDelegate.m */,
 				56BD895F172152080083C4B7 /* MainStoryboard.storyboard */,
+				564203D717229F8D0074DE9B /* ViewController.h */,
+				564203D817229F8D0074DE9B /* ViewController.m */,
 				56BD896A172152590083C4B7 /* ListTableViewController.h */,
 				56BD896B172152590083C4B7 /* ListTableViewController.m */,
 				56BD896D172152A50083C4B7 /* YoukuHelp.h */,
 				56BD896E172152A50083C4B7 /* YoukuHelp.m */,
+				564203D617229F1E0074DE9B /* Pull-Demo */,
 				56BD8979172154FE0083C4B7 /* TFHpple */,
 				56BD894E172152080083C4B7 /* Supporting Files */,
 			);
@@ -216,6 +239,9 @@
 				56BD8976172154FA0083C4B7 /* TFHpple.m in Sources */,
 				56BD8977172154FA0083C4B7 /* TFHppleElement.m in Sources */,
 				56BD8978172154FA0083C4B7 /* XPathQuery.m in Sources */,
+				564203D417229F090074DE9B /* RefreshTableFooterView.m in Sources */,
+				564203D517229F090074DE9B /* RefreshTableHeaderView.m in Sources */,
+				564203D917229F8D0074DE9B /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +368,7 @@
 				56BD8969172152080083C4B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
